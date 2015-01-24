@@ -1,0 +1,753 @@
+
+CREATE TABLE BORBA
+(
+	IDTakmicenja          INTEGER NOT NULL,
+	IDKategorije          INTEGER NOT NULL,
+	PoeniPlavi            INTEGER NULL,
+	PoeniCrveni           INTEGER NULL,
+	KaznePlavi            INTEGER NULL,
+	KazneCrveni           INTEGER NULL,
+	NivoTakmicenja        INTEGER NULL,
+	JMBPlavi              BIGINT NOT NULL,
+	JMBCrveni             BIGINT NOT NULL
+)
+;
+
+
+
+ALTER TABLE BORBA
+	ADD  PRIMARY KEY (IDKategorije,IDTakmicenja,JMBPlavi,JMBCrveni)
+;
+
+
+
+CREATE TABLE BORBE_EKIPNO
+(
+	IDKategorije          INTEGER NOT NULL
+)
+;
+
+
+
+ALTER TABLE BORBE_EKIPNO
+	ADD  PRIMARY KEY (IDKategorije)
+;
+
+
+
+CREATE TABLE BORBE_POJEDINACNO
+(
+	Kilaza                DOUBLE NULL,
+	IDKategorije          INTEGER NOT NULL
+)
+;
+
+
+
+ALTER TABLE BORBE_POJEDINACNO
+	ADD  PRIMARY KEY (IDKategorije)
+;
+
+
+
+CREATE TABLE CLAN
+(
+	JMB                   BIGINT NOT NULL,
+	DatumRodjenja         DATE NOT NULL,
+	Pojas                 VARCHAR(20) NOT NULL,
+	IDKluba               INTEGER NOT NULL,
+	Ime                   CHAR(20) NOT NULL,
+	Prezime               CHAR(20) NOT NULL
+)
+;
+
+
+
+ALTER TABLE CLAN
+	ADD  PRIMARY KEY (JMB)
+;
+
+
+
+CREATE TABLE EKIPA
+(
+	IDKluba               INTEGER NOT NULL,
+	IDEkipe               INTEGER NULL,
+	NazivEkipe            CHAR(20) NOT NULL
+)
+;
+
+
+
+ALTER TABLE EKIPA
+	ADD  PRIMARY KEY (IDEkipe)
+;
+
+
+
+CREATE TABLE EKIPNA_BORBA
+(
+	BrojBorbe             INTEGER NULL,
+	PoeniPlavi            INTEGER NULL,
+	PoeniCrveni           INTEGER NULL,
+	NazivEkipePlavi       VARCHAR(20) NULL,
+	NazivEkipeCrveni      VARCHAR(20) NULL,
+	IDEkipePlavi          INTEGER NOT NULL,
+	IDTakmicenja          INTEGER NOT NULL,
+	IDKategorije          INTEGER NOT NULL,
+	IDEkipeCrveni         INTEGER NOT NULL
+)
+;
+
+
+
+ALTER TABLE EKIPNA_BORBA
+	ADD  PRIMARY KEY (IDEkipePlavi,IDTakmicenja,IDKategorije,IDEkipeCrveni)
+;
+
+
+
+CREATE TABLE EKIPNA_KATEGORIJA
+(
+	IDKategorije          INTEGER NOT NULL,
+	BrojPrijavljenihEkipa  INTEGER NULL
+)
+;
+
+
+
+ALTER TABLE EKIPNA_KATEGORIJA
+	ADD  PRIMARY KEY (IDKategorije)
+;
+
+
+
+CREATE TABLE EKIPNO_IZVODjENjE_KATE
+(
+	Ocjena1               INTEGER NULL,
+	Ocjena2               INTEGER NULL,
+	Ocjena3               INTEGER NULL,
+	NazivKate             CHAR(18) NULL,
+	IDEkipe               INTEGER NOT NULL,
+	IDTakmicenja          INTEGER NOT NULL,
+	IDKategorije          INTEGER NOT NULL
+)
+;
+
+
+
+ALTER TABLE EKIPNO_IZVODjENjE_KATE
+	ADD  PRIMARY KEY (IDEkipe,IDTakmicenja,IDKategorije)
+;
+
+
+
+CREATE TABLE ISPIT
+(
+	Adresa                VARCHAR(50) NULL,
+	DatumIVrijeme         DATE NULL,
+	IDKluba               INTEGER NOT NULL,
+	BrojPrijavljenihTakmicara  INTEGER NULL,
+	ProjPolezenih         INTEGER NULL
+)
+;
+
+
+
+ALTER TABLE ISPIT
+	ADD  PRIMARY KEY (IDKluba,DatumIVrijeme)
+;
+
+
+
+CREATE TABLE IZVODjENjE_KATE
+(
+	Ocjena1               INTEGER NULL,
+	Ocjena2               INTEGER NULL,
+	IDTakmicenja          INTEGER NOT NULL,
+	JMB                   BIGINT NOT NULL,
+	IDKategorije          INTEGER NOT NULL,
+	Ocjena3               INTEGER NULL,
+	NazivKate             CHAR(18) NULL
+)
+;
+
+
+
+ALTER TABLE IZVODjENjE_KATE
+	ADD  PRIMARY KEY (JMB,IDTakmicenja,IDKategorije)
+;
+
+
+
+CREATE TABLE KARATE_KAMP
+(
+	IDSaveza              INTEGER NOT NULL,
+	PocetakKampa          DATE NOT NULL,
+	KrajKampa             DATE NOT NULL,
+	IDKampa               INTEGER NOT NULL,
+	Mjesto                CHAR(20) NOT NULL,
+	Cijena                DOUBLE NOT NULL
+)
+;
+
+
+
+ALTER TABLE KARATE_KAMP
+	ADD  PRIMARY KEY (IDKampa)
+;
+
+
+
+CREATE TABLE KARATE_KLUB
+(
+	NazivKarateKluba      VARCHAR(20) NOT NULL,
+	IDKluba               INTEGER NOT NULL,
+	Opis                  VARCHAR(50) NULL,
+	Adresa                VARCHAR(50) NULL,
+	IDSaveza              INTEGER NOT NULL,
+	Sjediste              CHAR(20) NOT NULL
+)
+;
+
+
+
+ALTER TABLE KARATE_KLUB
+	ADD  PRIMARY KEY (IDKluba)
+;
+
+
+
+CREATE TABLE KARATE_SAVEZ
+(
+	NazivSaveza           VARCHAR(20) NOT NULL,
+	Opis                  VARCHAR(50) NULL,
+	IDSaveza              INTEGER NOT NULL,
+	Sjediste              VARCHAR(20) NOT NULL
+)
+;
+
+
+
+ALTER TABLE KARATE_SAVEZ
+	ADD  PRIMARY KEY (IDSaveza)
+;
+
+
+
+CREATE TABLE KATE_EKIPNO
+(
+	IDKategorije          INTEGER NOT NULL
+)
+;
+
+
+
+ALTER TABLE KATE_EKIPNO
+	ADD  PRIMARY KEY (IDKategorije)
+;
+
+
+
+CREATE TABLE KATE_POJEDINACNO
+(
+	Nivo                  VARCHAR(20) NULL,
+	IDKategorije          INTEGER NOT NULL
+)
+;
+
+
+
+ALTER TABLE KATE_POJEDINACNO
+	ADD  PRIMARY KEY (IDKategorije)
+;
+
+
+
+CREATE TABLE KATEGORIJA
+(
+	NazivKategorije       VARCHAR(20) NOT NULL,
+	IDKategorije          INTEGER NULL,
+	Uzrast                CHAR(18) NOT NULL,
+	OpisKategorije        VARCHAR(20) NULL
+)
+;
+
+
+
+ALTER TABLE KATEGORIJA
+	ADD  PRIMARY KEY (IDKategorije)
+;
+
+
+
+CREATE TABLE POJEDINACNA_KATEGORIJA
+(
+	IDKategorije          INTEGER NOT NULL,
+	BrojPrijavljenihTakmicara  INTEGER NULL
+)
+;
+
+
+
+ALTER TABLE POJEDINACNA_KATEGORIJA
+	ADD  PRIMARY KEY (IDKategorije)
+;
+
+
+
+CREATE TABLE POLAGANjE
+(
+	Pojas                 VARCHAR(20) NULL,
+	Polozio               INTEGER NULL,
+	JMB                   BIGINT NOT NULL,
+	IDKluba               INTEGER NOT NULL,
+	DatumIVrijeme         DATE NOT NULL
+)
+;
+
+
+
+ALTER TABLE POLAGANjE
+	ADD  PRIMARY KEY (JMB,Pojas,IDKluba,DatumIVrijeme)
+;
+
+
+
+CREATE TABLE PRIJAVLjUJE_BORBE_EKIPNO
+(
+	IDEkipe               INTEGER NOT NULL,
+	IDTakmicenja          INTEGER NOT NULL,
+	IDKategorije          INTEGER NOT NULL,
+	Plasman               INTEGER NULL
+)
+;
+
+
+
+ALTER TABLE PRIJAVLjUJE_BORBE_EKIPNO
+	ADD  PRIMARY KEY (IDEkipe,IDTakmicenja,IDKategorije)
+;
+
+
+
+CREATE TABLE PRIJAVLjUJE_KATE_EKIPNO
+(
+	IDEkipe               INTEGER NOT NULL,
+	IDTakmicenja          INTEGER NOT NULL,
+	IDKategorije          INTEGER NOT NULL,
+	Plasman               INTEGER NULL
+)
+;
+
+
+
+ALTER TABLE PRIJAVLjUJE_KATE_EKIPNO
+	ADD  PRIMARY KEY (IDEkipe,IDTakmicenja,IDKategorije)
+;
+
+
+
+CREATE TABLE PRIJAVLJUJE_TAKMICENjE_U_BORBAMA
+(
+	IDTakmicenja          INTEGER NOT NULL,
+	IDKategorije          INTEGER NOT NULL,
+	JMB                   BIGINT NOT NULL,
+	Plasman               INTEGER NULL,
+	BrojPobjeda           INTEGER NULL,
+	BrojPoraza            INTEGER NULL
+)
+;
+
+
+
+ALTER TABLE PRIJAVLJUJE_TAKMICENjE_U_BORBAMA
+	ADD  PRIMARY KEY (IDTakmicenja,IDKategorije,JMB)
+;
+
+
+
+CREATE TABLE PRIJAVLjUJE_TAKMICENjE_U_KATAMA
+(
+	IDTakmicenja          INTEGER NOT NULL,
+	JMB                   BIGINT NOT NULL,
+	IDKategorije          INTEGER NOT NULL,
+	Plasman               INTEGER NULL,
+	BrojNastupa           INTEGER NULL
+)
+;
+
+
+
+ALTER TABLE PRIJAVLjUJE_TAKMICENjE_U_KATAMA
+	ADD  PRIMARY KEY (IDTakmicenja,JMB,IDKategorije)
+;
+
+
+
+CREATE TABLE SUDIJA
+(
+	JMB                   BIGINT NOT NULL,
+	Nivo                  VARCHAR(20) NULL
+)
+;
+
+
+
+ALTER TABLE SUDIJA
+	ADD  PRIMARY KEY (JMB)
+;
+
+
+
+CREATE TABLE TAKMICAR
+(
+	Kilaza                DOUBLE NOT NULL,
+	JMB                   BIGINT NOT NULL,
+	IDEkipe               INTEGER NULL
+)
+;
+
+
+
+ALTER TABLE TAKMICAR
+	ADD  PRIMARY KEY (JMB)
+;
+
+
+
+CREATE TABLE TAKMICENjE
+(
+	IDTakmicenja          INTEGER NULL,
+	NazivTakmicenja       VARCHAR(20) NULL,
+	DatumPocetka          DATE NOT NULL,
+	IDKluba               INTEGER NULL,
+	IDSaveza              INTEGER NULL,
+	Adresa                CHAR(50) NOT NULL
+)
+;
+
+
+
+ALTER TABLE TAKMICENjE
+	ADD  PRIMARY KEY (IDTakmicenja)
+;
+
+
+
+CREATE TABLE TAKMICENjE_KATEGORIJA
+(
+	IDTakmicenja          INTEGER NOT NULL,
+	IDKategorije          INTEGER NOT NULL,
+	VrijemePocetka        DATE NULL,
+	BrojBorilista         INTEGER NULL
+)
+;
+
+
+
+ALTER TABLE TAKMICENjE_KATEGORIJA
+	ADD  PRIMARY KEY (IDTakmicenja,IDKategorije)
+;
+
+
+
+CREATE TABLE TRENER
+(
+	Opis                  VARCHAR(50) NULL,
+	JMB                   BIGINT NOT NULL
+)
+;
+
+
+
+ALTER TABLE TRENER
+	ADD  PRIMARY KEY (JMB)
+;
+
+
+
+CREATE TABLE TRENING
+(
+	Datum                 DATE NOT NULL,
+	BrojPrisutnih         INTEGER NULL,
+	Adresa                VARCHAR(50) NOT NULL,
+	IDKluba               INTEGER NOT NULL
+)
+;
+
+
+
+ALTER TABLE TRENING
+	ADD  PRIMARY KEY (Datum,IDKluba)
+;
+
+
+
+CREATE TABLE UCESCE_EKIPE
+(
+	IDEkipe               INTEGER NOT NULL,
+	IDTakmicenja          INTEGER NOT NULL,
+	DatumPrijave          DATE NULL
+)
+;
+
+
+
+ALTER TABLE UCESCE_EKIPE
+	ADD  PRIMARY KEY (IDEkipe,IDTakmicenja)
+;
+
+
+
+CREATE TABLE UCESCE_POJEDINCA
+(
+	IDTakmicenja          INTEGER NOT NULL,
+	JMB                   BIGINT NOT NULL,
+	DatumPrijave          DATE NULL
+)
+;
+
+
+
+ALTER TABLE UCESCE_POJEDINCA
+	ADD  PRIMARY KEY (IDTakmicenja,JMB)
+;
+
+
+
+ALTER TABLE BORBA
+	ADD FOREIGN KEY R_97 (IDTakmicenja,IDKategorije,JMBPlavi) REFERENCES PRIJAVLJUJE_TAKMICENjE_U_BORBAMA(IDTakmicenja,IDKategorije,JMB)
+;
+
+
+ALTER TABLE BORBA
+	ADD FOREIGN KEY R_98 (IDTakmicenja,IDKategorije,JMBCrveni) REFERENCES PRIJAVLJUJE_TAKMICENjE_U_BORBAMA(IDTakmicenja,IDKategorije,JMB)
+;
+
+
+
+ALTER TABLE BORBE_EKIPNO
+	ADD FOREIGN KEY (IDKategorije) REFERENCES EKIPNA_KATEGORIJA(IDKategorije)
+		ON DELETE CASCADE
+;
+
+
+
+ALTER TABLE BORBE_POJEDINACNO
+	ADD FOREIGN KEY (IDKategorije) REFERENCES POJEDINACNA_KATEGORIJA(IDKategorije)
+		ON DELETE CASCADE
+;
+
+
+
+ALTER TABLE CLAN
+	ADD FOREIGN KEY R_6 (IDKluba) REFERENCES KARATE_KLUB(IDKluba)
+;
+
+
+
+ALTER TABLE EKIPA
+	ADD FOREIGN KEY R_72 (IDKluba) REFERENCES KARATE_KLUB(IDKluba)
+;
+
+
+
+ALTER TABLE EKIPNA_BORBA
+	ADD FOREIGN KEY R_109 (IDEkipePlavi,IDTakmicenja,IDKategorije) REFERENCES PRIJAVLjUJE_BORBE_EKIPNO(IDEkipe,IDTakmicenja,IDKategorije)
+;
+
+
+ALTER TABLE EKIPNA_BORBA
+	ADD FOREIGN KEY R_110 (IDEkipeCrveni,IDTakmicenja,IDKategorije) REFERENCES PRIJAVLjUJE_BORBE_EKIPNO(IDEkipe,IDTakmicenja,IDKategorije)
+;
+
+
+
+ALTER TABLE EKIPNA_KATEGORIJA
+	ADD FOREIGN KEY (IDKategorije) REFERENCES KATEGORIJA(IDKategorije)
+		ON DELETE CASCADE
+;
+
+
+
+ALTER TABLE EKIPNO_IZVODjENjE_KATE
+	ADD FOREIGN KEY R_104 (IDEkipe,IDTakmicenja,IDKategorije) REFERENCES PRIJAVLjUJE_KATE_EKIPNO(IDEkipe,IDTakmicenja,IDKategorije)
+;
+
+
+
+ALTER TABLE ISPIT
+	ADD FOREIGN KEY R_19 (IDKluba) REFERENCES KARATE_KLUB(IDKluba)
+;
+
+
+
+ALTER TABLE IZVODjENjE_KATE
+	ADD FOREIGN KEY R_88 (IDTakmicenja,JMB,IDKategorije) REFERENCES PRIJAVLjUJE_TAKMICENjE_U_KATAMA(IDTakmicenja,JMB,IDKategorije)
+;
+
+
+
+ALTER TABLE KARATE_KAMP
+	ADD FOREIGN KEY R_59 (IDSaveza) REFERENCES KARATE_SAVEZ(IDSaveza)
+;
+
+
+
+ALTER TABLE KARATE_KLUB
+	ADD FOREIGN KEY R_4 (IDSaveza) REFERENCES KARATE_SAVEZ(IDSaveza)
+;
+
+
+
+ALTER TABLE KATE_EKIPNO
+	ADD FOREIGN KEY (IDKategorije) REFERENCES EKIPNA_KATEGORIJA(IDKategorije)
+		ON DELETE CASCADE
+;
+
+
+
+ALTER TABLE KATE_POJEDINACNO
+	ADD FOREIGN KEY (IDKategorije) REFERENCES POJEDINACNA_KATEGORIJA(IDKategorije)
+		ON DELETE CASCADE
+;
+
+
+
+ALTER TABLE POJEDINACNA_KATEGORIJA
+	ADD FOREIGN KEY (IDKategorije) REFERENCES KATEGORIJA(IDKategorije)
+		ON DELETE CASCADE
+;
+
+
+
+ALTER TABLE POLAGANjE
+	ADD FOREIGN KEY R_89 (JMB) REFERENCES CLAN(JMB)
+;
+
+
+ALTER TABLE POLAGANjE
+	ADD FOREIGN KEY R_90 (IDKluba,DatumIVrijeme) REFERENCES ISPIT(IDKluba,DatumIVrijeme)
+;
+
+
+
+ALTER TABLE PRIJAVLjUJE_BORBE_EKIPNO
+	ADD FOREIGN KEY R_101 (IDEkipe,IDTakmicenja) REFERENCES UCESCE_EKIPE(IDEkipe,IDTakmicenja)
+;
+
+
+ALTER TABLE PRIJAVLjUJE_BORBE_EKIPNO
+	ADD FOREIGN KEY R_102 (IDKategorije) REFERENCES BORBE_EKIPNO(IDKategorije)
+;
+
+
+
+ALTER TABLE PRIJAVLjUJE_KATE_EKIPNO
+	ADD FOREIGN KEY R_99 (IDEkipe,IDTakmicenja) REFERENCES UCESCE_EKIPE(IDEkipe,IDTakmicenja)
+;
+
+
+ALTER TABLE PRIJAVLjUJE_KATE_EKIPNO
+	ADD FOREIGN KEY R_100 (IDKategorije) REFERENCES KATE_EKIPNO(IDKategorije)
+;
+
+
+
+ALTER TABLE PRIJAVLJUJE_TAKMICENjE_U_BORBAMA
+	ADD FOREIGN KEY R_79 (IDKategorije) REFERENCES BORBE_POJEDINACNO(IDKategorije)
+;
+
+
+ALTER TABLE PRIJAVLJUJE_TAKMICENjE_U_BORBAMA
+	ADD FOREIGN KEY R_81 (IDTakmicenja,JMB) REFERENCES UCESCE_POJEDINCA(IDTakmicenja,JMB)
+;
+
+
+
+ALTER TABLE PRIJAVLjUJE_TAKMICENjE_U_KATAMA
+	ADD FOREIGN KEY R_86 (IDTakmicenja,JMB) REFERENCES UCESCE_POJEDINCA(IDTakmicenja,JMB)
+;
+
+
+ALTER TABLE PRIJAVLjUJE_TAKMICENjE_U_KATAMA
+	ADD FOREIGN KEY R_87 (IDKategorije) REFERENCES KATE_POJEDINACNO(IDKategorije)
+;
+
+
+
+ALTER TABLE SUDIJA
+	ADD FOREIGN KEY (JMB) REFERENCES CLAN(JMB)
+		ON DELETE CASCADE
+;
+
+
+
+ALTER TABLE TAKMICAR
+	ADD FOREIGN KEY (JMB) REFERENCES CLAN(JMB)
+		ON DELETE CASCADE
+;
+
+
+ALTER TABLE TAKMICAR
+	ADD FOREIGN KEY R_70 (IDEkipe) REFERENCES EKIPA(IDEkipe)
+;
+
+
+
+ALTER TABLE TAKMICENjE
+	ADD FOREIGN KEY R_21 (IDKluba) REFERENCES KARATE_KLUB(IDKluba)
+;
+
+
+ALTER TABLE TAKMICENjE
+	ADD FOREIGN KEY R_22 (IDSaveza) REFERENCES KARATE_SAVEZ(IDSaveza)
+;
+
+
+
+ALTER TABLE TAKMICENjE_KATEGORIJA
+	ADD FOREIGN KEY R_105 (IDTakmicenja) REFERENCES TAKMICENjE(IDTakmicenja)
+;
+
+
+ALTER TABLE TAKMICENjE_KATEGORIJA
+	ADD FOREIGN KEY R_107 (IDKategorije) REFERENCES KATEGORIJA(IDKategorije)
+;
+
+
+
+ALTER TABLE TRENER
+	ADD FOREIGN KEY (JMB) REFERENCES CLAN(JMB)
+		ON DELETE CASCADE
+;
+
+
+
+ALTER TABLE TRENING
+	ADD FOREIGN KEY R_111 (IDKluba) REFERENCES KARATE_KLUB(IDKluba)
+;
+
+
+
+ALTER TABLE UCESCE_EKIPE
+	ADD FOREIGN KEY R_92 (IDEkipe) REFERENCES EKIPA(IDEkipe)
+;
+
+
+ALTER TABLE UCESCE_EKIPE
+	ADD FOREIGN KEY R_93 (IDTakmicenja) REFERENCES TAKMICENjE(IDTakmicenja)
+;
+
+
+
+ALTER TABLE UCESCE_POJEDINCA
+	ADD FOREIGN KEY R_76 (IDTakmicenja) REFERENCES TAKMICENjE(IDTakmicenja)
+;
+
+
+ALTER TABLE UCESCE_POJEDINCA
+	ADD FOREIGN KEY R_80 (JMB) REFERENCES TAKMICAR(JMB)
+;
+
