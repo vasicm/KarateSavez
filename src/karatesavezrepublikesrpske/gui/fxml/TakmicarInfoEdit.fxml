@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="372.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="karatesavezrepublikesrpske.gui.controller.TakmicarInfoEditController">
+   <children>
+      <AnchorPane prefHeight="334.0" prefWidth="317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane prefHeight="325.0" prefWidth="420.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="JMB:" GridPane.columnIndex="1" />
+                  <Label prefHeight="17.0" prefWidth="47.0" text="Kilaza:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField fx:id="kilaza" prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <Label text="Datum rodjenja:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="datumPiker" prefHeight="25.0" prefWidth="267.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label prefHeight="17.0" prefWidth="47.0" text="Ime:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="ime" prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label prefHeight="17.0" prefWidth="47.0" text="Prezime:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label prefHeight="17.0" prefWidth="47.0" text="Pojas:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="prezime" prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="pojas" prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label prefHeight="17.0" prefWidth="47.0" text="Klub:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <ChoiceBox fx:id="klub" prefHeight="25.0" prefWidth="205.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Label fx:id="jmb" GridPane.columnIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="269.0" minWidth="10.0" prefWidth="52.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="269.0" minWidth="10.0" prefWidth="121.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="403.0" minWidth="10.0" prefWidth="167.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <Label fx:id="labela" layoutX="35.0" layoutY="343.0" prefHeight="17.0" prefWidth="282.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="95.0" />
+         </children>
+      </AnchorPane>
+      <PieChart fx:id="pieChart" layoutX="373.0" layoutY="14.0" prefHeight="179.0" prefWidth="205.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="15.0" />
+      <GridPane layoutX="338.0" layoutY="206.0" prefHeight="90.0" prefWidth="245.0" AnchorPane.bottomAnchor="74.0" AnchorPane.rightAnchor="25.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="203.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="19.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Broj meceva:" />
+            <Label text="Prosjek postignutih poena po mecu:" GridPane.rowIndex="1" />
+            <Label text="Prosjek primljenih poena po mecu:" GridPane.rowIndex="2" />
+            <Label fx:id="brojMeceva" GridPane.columnIndex="1" />
+            <Label fx:id="prosjekPostignutih" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="prosjekPrimljenih" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button fx:id="dugmeSacuvaj" layoutX="526.0" layoutY="325.0" mnemonicParsing="false" text="Sacuvaj izmjene" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="30.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-base: rgb(50, 50, 50);
+    /*-fx-base: rgb(12, 84, 114);*/
+    /*-fx-base: rgb(148, 235, 71);*/
+}
+#AnchorPaneBack {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-base,+50%), derive(-fx-base,-40%), derive(-fx-base,-20%));
+}
+
+#AnchorPane {
+    -fx-background-color: radial-gradient(radius 50%, derive(-fx-base,10%), derive(-fx-base,-10%));
+    -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+}

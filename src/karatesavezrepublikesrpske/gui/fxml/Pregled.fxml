@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPregled" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="karatesavezrepublikesrpske.gui.controller.PregledController">
+   <children>
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="136.0" prefHeight="414.0" prefWidth="921.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="136.0">
+         <columns>
+            <TableColumn fx:id="kolonaIme" prefWidth="156.0" text="Ime" />
+            <TableColumn fx:id="kolonaPrezime" prefWidth="185.0" text="Prezime" />
+            <TableColumn fx:id="kolonaKlub" prefWidth="116.0" text="Klub" />
+            <TableColumn fx:id="kolonaDatumRodjenja" prefWidth="162.0" text="Godina rodjenja" />
+            <TableColumn fx:id="kolonaPojas" prefWidth="116.0" text="Pojas" />
+         </columns>
+      </TableView>
+      <ChoiceBox fx:id="choiceBoxKlubPregled" disable="true" layoutX="14.0" layoutY="63.0" prefWidth="150.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="63.0" />
+      <ChoiceBox fx:id="choiceBoxTakmicenjePregled" disable="true" layoutX="178.0" layoutY="63.0" prefWidth="150.0" AnchorPane.leftAnchor="178.0" AnchorPane.topAnchor="63.0" />
+      <Label layoutX="14.0" layoutY="46.0" prefHeight="14.0" prefWidth="58.0" text="Klub:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="46.0" />
+      <Label layoutX="178.0" layoutY="46.0" prefHeight="14.0" prefWidth="68.0" text="Takmicenje:" AnchorPane.leftAnchor="178.0" AnchorPane.topAnchor="46.0" />
+      <ChoiceBox fx:id="choiceBoxKategorijaPregled" disable="true" layoutX="342.0" layoutY="63.0" prefWidth="150.0" AnchorPane.leftAnchor="342.0" AnchorPane.topAnchor="63.0" />
+      <Label layoutX="342.0" layoutY="46.0" prefHeight="14.0" prefWidth="68.0" text="Kategorija:" AnchorPane.leftAnchor="342.0" AnchorPane.topAnchor="46.0" />
+      <ToolBar layoutX="3.0" layoutY="6.0" prefHeight="40.0" prefWidth="365.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <Button fx:id="dugmeDodajTakmicara" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Dodaj takmicara" />
+            <Button fx:id="dugmeObrisiTakmicara" mnemonicParsing="false" prefHeight="0.0" prefWidth="103.0" text="Obrisi takmicara" />
+         </items>
+      </ToolBar>
+      <ToolBar layoutY="111.0" prefHeight="25.0" prefWidth="921.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="111.0">
+         <items>
+            <Label text="Takmicari:" />
+         </items></ToolBar>
+      <Button fx:id="dugmeOsvjezi" layoutX="507.0" layoutY="63.0" mnemonicParsing="false" text="Osvjezi" AnchorPane.leftAnchor="507.0" AnchorPane.topAnchor="63.0" />
+   </children>
+</AnchorPane>

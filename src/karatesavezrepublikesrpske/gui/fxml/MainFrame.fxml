@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPaneBack" prefHeight="534.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="karatesavezrepublikesrpske.gui.controller.MainFrameController">
+   <children>
+      <BorderPane fx:id="borderPane" layoutX="180.0" layoutY="181.0" prefHeight="534.0" prefWidth="823.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="100.0" prefWidth="823.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imgPocetna" fitHeight="80.0" fitWidth="80.0" layoutX="41.0" layoutY="-10.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="10.0">
+                     <image>
+                        <Image url="@../../icon/1420916269_kfm_home.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imgPregled" fitHeight="80.0" fitWidth="80.0" layoutX="166.0" layoutY="10.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="10.0">
+                     <image>
+                        <Image url="@../../icon/1420916240_kappfinder.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imgPrijava" fitHeight="80.0" fitWidth="80.0" layoutX="281.0" layoutY="10.0" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="10.0">
+                     <image>
+                        <Image url="@../../icon/1420916211_Globe.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imgPodesavanja" fitHeight="80.0" fitWidth="80.0" layoutX="395.0" layoutY="3.0" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="10.0">
+                     <image>
+                        <Image url="@../../icon/1420916183_Service%20Manager.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imgIzlaz" fitHeight="80.0" fitWidth="80.0" layoutX="629.0" layoutY="-7.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="10.0">
+                     <image>
+                        <Image url="@../../icon/1420916291_shutdown.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="374.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <AnchorPane prefHeight="374.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+         </right>
+         <bottom>
+            <AnchorPane maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="823.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="40.0" layoutY="17.0" prefHeight="17.0" prefWidth="520.0" text="Vasic Marko, Elektrotehnicki fakultet, 1113/11" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="15.0" />
+               </children></AnchorPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
